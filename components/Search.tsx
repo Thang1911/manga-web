@@ -29,8 +29,8 @@ const Search = () => {
           Search
         </button>
       </form>
-      <section className="w-full sreen overflow-y-scroll mt-4">
-        <div className="flex flex-wrap gap-4">
+      <section className="w-full h-screen overflow-y-scroll mt-4">
+        <div className="flex flex-wrap gap-4 w-full h-2/4">
           {results.map((result, i) => (
             <CardManga key={i} manga={result} />
           ))}
