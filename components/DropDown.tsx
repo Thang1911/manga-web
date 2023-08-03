@@ -34,7 +34,7 @@ const DropDown: FC<{
   const UpdateUrl = (value: number | null) => {
     const searchParams = new URLSearchParams(window.location.search);
     if (value) {
-      searchParams.set("chapter", value.toString());
+      searchParams.set("chapterId", value.toString());
     }
     const newPathname = `${
       window.location.pathname
@@ -43,14 +43,14 @@ const DropDown: FC<{
     router.push(newPathname);
   };
 
-  const findIndexByName = (label: string) => {
+  const findIndexByName = (id: number) => {
     return ChapterNewProps.findIndex(
-      (array) => array.label.toLowerCase() === label.toLowerCase()
+      (array) => array.value == id
     );
   };
 
   const handleLoad = () => {
-    const Index = findIndexByName(defaultLabel);
+    const Index = findIndexByName(value);
     setIndex(Index);
   };
 
@@ -81,7 +81,7 @@ const DropDown: FC<{
       setDefaultLabel(selectedOption.label);
 
       const currentIndex = ChapterNewProps.findIndex(
-        (option) => option.value === selectedOption.value
+        (option: { value: number; }) => option.value === selectedOption.value
       );
       setIndex(currentIndex);
     }
@@ -132,8 +132,8 @@ const DropDown: FC<{
           Next
         </button>
       </div>
-      <section className="w-full h-screen overflow-y-scroll">
-        <div className="w-full h-3/4">
+      <section className="w-full h-full overflow-y-scroll">
+        <div className="w-full h-3/5">
           <SliderManga images={data} />
         </div>
       </section>
