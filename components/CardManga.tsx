@@ -11,8 +11,8 @@ const CardManga = ({ manga }: MangaProps) => {
   const { thumbnail, title, authors, id } = manga;
   return (
     <Link href={`/mangaDetail/${id}`}>
-      <div className="cursor-pointer relative group w-56 mb-2 bg-neutral-800 hover:bg-neutral-600 rounded-md p-4">
-        <div className="relative w-48 h-48 my-3 object-contain">
+      <div className="cursor-pointer relative group w-64 mb-2 bg-neutral-800 hover:bg-neutral-600 rounded-md p-4">
+        <div className="relative justify-center item-center w-52 h-52 my-3 object-contain">
           <Image
             src={thumbnail}
             alt="image_manga"

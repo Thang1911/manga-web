@@ -1,8 +1,6 @@
 'use client';
-
 import Slider, { Settings } from "react-slick";
 import CardManga from "../CardManga";
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 

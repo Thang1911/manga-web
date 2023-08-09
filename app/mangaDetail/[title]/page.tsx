@@ -1,8 +1,6 @@
 import React from "react";
-import { parse, ParsedUrlQuery, stringify } from "querystring";
-import { getChapters, getMangaDetail } from "@/utils";
-import Image from "next/image";
-import { shuffle } from "lodash";
+import { ParsedUrlQuery, stringify } from "querystring";
+import { getMangaDetail } from "@/utils";
 import { chaptersProps, genresProps } from "@/types";
 import Link from "next/link";
 
@@ -63,13 +61,18 @@ const page = async ({ params }: ParamsProps) => {
           </p>
         </div>
       </section>
-      <div className="text-white px-8 flex flex-wrap space-y-1 pb-28 h-2/4 overflow-y-scroll">
+      <div className="text-white px-8 flex flex-wrap space-y-1y h-2/4 overflow-y-scroll">
         {listMangaChapters.map((chapter: chaptersProps) => (
-          <Link href={`${listMangaDetail.id}/chapter?chapterId=${chapter.id}`} key={chapter.id}>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-1">
+          <button
+            className="flex-initial bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-1"
+            key={chapter.id}
+          >
+            <Link
+              href={`${listMangaDetail.id}/chapter?chapterId=${chapter.id}`}
+            >
               {chapter.name}
-            </button>
-          </Link>
+            </Link>
+          </button>
         ))}
       </div>
     </div>

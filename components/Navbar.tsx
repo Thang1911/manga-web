@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 const Navbar = () => {
   return (
@@ -49,7 +49,7 @@ const Navbar = () => {
               <a
                 className="active disabled:text-black/30 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
                 aria-current="page"
-                href="#"
+                href="/"
                 data-te-nav-link-ref
               >
                 Home

@@ -8,11 +8,10 @@ import SliderManga from "./slider/sliderManga";
 const DropDown: FC<{
   nameManga: string;
   ChapterId: number;
-  defaultValue: string;
-}> = ({ nameManga, ChapterId, defaultValue }) => {
+}> = ({ nameManga, ChapterId }) => {
   const router = useRouter();
   const [value, setValue] = useState(ChapterId);
-  const [defaultLabel, setDefaultLabel] = useState(defaultValue);
+  const [defaultLabel, setDefaultLabel] = useState("");
   const [index, setIndex] = useState(0);
   const [data, setData] = useState([]);
   const [chapters, setChapters] = useState([]);
@@ -24,6 +23,7 @@ const DropDown: FC<{
     const result = await response.json();
     setData(result.images);
     setChapters(result.chapters);
+    setDefaultLabel(result.chapter_name);
   };
 
   useEffect(() => {
@@ -44,9 +44,7 @@ const DropDown: FC<{
   };
 
   const findIndexByName = (id: number) => {
-    return ChapterNewProps.findIndex(
-      (array) => array.value == id
-    );
+    return ChapterNewProps.findIndex((array) => array.value == id);
   };
 
   const handleLoad = () => {
@@ -81,7 +79,7 @@ const DropDown: FC<{
       setDefaultLabel(selectedOption.label);
 
       const currentIndex = ChapterNewProps.findIndex(
-        (option: { value: number; }) => option.value === selectedOption.value
+        (option: { value: number }) => option.value === selectedOption.value
       );
       setIndex(currentIndex);
     }

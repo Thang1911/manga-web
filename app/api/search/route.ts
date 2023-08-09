@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
-import { Comics } from "comics-api";
 
 async function fetchManga (query: any) {
-    const response = await Comics.searchComics(query)
-    const data = await response.comics;
+    const response = await fetch(
+      ` https://comics-api.vercel.app/search?q=${query}`
+    );
+    const data = await response.json();
     return data;
 }
 

@@ -6,6 +6,7 @@ const nextConfig = {
       "comics-api.vercel.app",
       "st.ntcdntempv3.com",
       "nettruyenco.vn",
+      "nettruyennew.com",
     ],
   },
   experimental: {

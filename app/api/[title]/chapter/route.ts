@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
-import { Comics } from "comics-api";
 
 async function getData(name: string, id: number) {
-    const response = await Comics.getChapter(name, id);
-    const data = await response;
+    const response = await fetch(`https://comics-api.vercel.app/comics/${name}/chapters/${id}`);
+    const data = await response.json();
     return data;
 }
 
