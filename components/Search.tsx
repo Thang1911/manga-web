@@ -10,7 +10,7 @@ const Search = () => {
     if (query !== "") {
       const response = await fetch(`/api/search?query=${query}`);
       const result = await response.json();
-      setResults(result);
+      setResults(result.comics);
     }
   };
   return (
